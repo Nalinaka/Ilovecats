@@ -1,37 +1,256 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>I love Cats</title>
+    <script src="https://kit.fontawesome.com/e995974119.js" crossorigin="anonymous"></script>
+    <script src="index.js"></script>
+    <script src="user.html"></script>
+    <link rel="stylesheet" href="style.css" />
+    <script src="user.js"></script>
+    <script src="modal.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
+    <script type="text/javascript">
+      (function () {
+        emailjs.init("gCwI_XisOix3B45N1");
+      })();
+    </script>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="index.css">
-</head>
+  <section id="navbar">
+    <section id="landing-page" onmousemove="moveBackground(event)">
+      <nav>
+        <figure>
+          <li class="nav__link" onclick="toggleModal()">
+          <img id="cuteCats-logo" src="./assets/Cute Cats Logo.png" alt="logo" />
+        </li>
+        </figure>
+      
+        <ul class="nav__link--list">
+          <li class="nav__link">
+            <a
+              href="#Home"
+              class="nav__link--anchor link__hover-effect link__hover-effect--blue"
+              >Home</a
+            >
+          </li>
 
-<body>
-  <div class="post__search">
-    <a href="/index.html">
-      <button>← Back</button>
-    </a>
-    <select onchange="showBreedImage(value)" name="breed_selector" id="breed_selector">
-    </select>
+          <li class="nav__link">
+            <a
+              href="findyourcat.html"
+              class="nav__link--anchor link__hover-effect link__hover-effect--blue"
+              >Find your Cat</a
+            >
+          </li>
+
+          <li class="nav__link" onclick="toggleModal()">
+            <a
+              href="#"
+              class="nav__link--anchor link__hover-effect link__hover-effect--blue"
+              >Contact</a
+            >
+          </li>
+
+          <li class="nav__link click" onclick="toggleContrast()">
+            <a
+              href="#"
+              class="nav__link--anchor link__hover-effect link__hover-effect--black"
+              ><i class="fa-solid fa-circle-half-stroke"></i>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <h1>California's Cutest Cats for Adoption</h1>
+      <h2>Find your new fellow feline</h2>
+    </section>
+
+    <body>
+      <a href="#">
+        <button class="mail__btn click" onclick="toggleModal()">
+          <i class="fa-regular fa-envelope"></i>
+        </button>
+      </a>
+      <a href="Find your cat" class="scroll">
+        <div class="scroll__icon click"></div>
+      </a>
+      <div class="modal">
+        <div class="modal__half modal__about">
+          <h3 class="modal__title modal__title--about">
+            Here's a bit about <b class="blue" onclick="toggleModal()"></b>
+          </h3>
+          <h4 class="modal__sub-title modal__sub-title--about">
+            Cat Adoption Agency
+          </h4>
+          <p class="modal__para">
+            We're Passionate about <span class="text-blue">Cats.</span>
+            <br />
+            We have an array of different cats, ready to take on life
+            <span class="text-blue">with their new owner.</span> Contact us
+            today and we can discuss further!
+            <br />
+            <span class="text-blue">We're here to help</span> you choose your
+            new companion.
+          </p>
+          <div class="cat__Images--container">
+            <figure class="Cat_Images">
+              <img
+                class="modal__cat--img"
+                src="./assets/Grogu the cat.png"
+                alt="GC"
+              />
+              <span class="cat__name">Grogu Cat</span>
+            </figure>
+            
+            <figure class="Cat_Images">
+              <img
+                class="modal__cat--img"
+                src="./assets/Catakin Skywalker.jpg"
+                alt="JTC"
+              />
+              <span class="cat__name">Catakin Skywalker</span>
+            </figure>
+
+            <figure class="Cat_Images">
+              <img
+                class="modal__cat--img"
+                src="./assets/Catlacious Crumb.png"
+                alt="CC"
+              />
+              <span class="cat__name">Catlacious Crumb</span>
+            </figure>
+          </div>
+        </div>
+
+        <div class="modal__half modal__contact">
+          <i class="fas fa-times modal__exit click" onclick="toggleModal()"></i>
+          <h3 class="modal__title modal__title--contact">Let's have a chat!</h3>
+          <h3 class="modal__sub-title modal__sub-title--contact">
+            Adopt a Cat Today!
+          </h3>
+          <form id="contact__form" onsubmit="contact(event)">
+            <div class="form__item">
+              <label class="form__item--label"> Name</label>
+              <input class="input" name="user_name" type="text" required />
+            </div>
+            <div class="form__item">
+              <label class="form__item--label">Phone</label>
+              <input class="input" name="user_phone" type="number" required />
+            </div>
+            <div class="form__item">
+              <label class="form__item--label">Email</label>
+              <input class="input" name="user_email" type="email" required />
+            </div>
+            <div class="form__item">
+              <label class="form__item--label">Message</label>
+              <textarea
+                class="input"
+                name="message"
+                type="text"
+                required
+              ></textarea>
+            </div>
+            <button id="contact__submit" class="form__submit">Submit</button>
+          </form>
+          <div class="modal__overlay modal__overlay--loading">
+            <i class="fas fa-spinner"></i>
+          </div>
+          <div class="modal__overlay modal__overlay--success">
+            Thanks for your message. Soon, a message and cat you shall have!
+          </div>
+        </div>
+      </div>
+<!-- 
+      <section id="content">
+        <search id="search">
+          <form id="form">
+            <input type="text" placeholder="Search by breed" />
+            <button type="submit" id="search-btn">Search</button>
+            <p>Search by breed</p>
+          </form>
+        </search>
+      </section>
+
+      <section id="cats">
+        <span data>
+          Price range:
+          <select id="Price-range">
+            "$20 to $200"
+          </select>
+        </span>
+      </section>
+
+      <section id="Cat Information">
+        <div class="container">
+          <div class="row">
+            <div class="cat-list">
+              <div class="cats">
+                <div class="cat-card">
+                  <div class="cat-card__container">
+                    <h3>Cat's Breed</h3>
+                    <p><b>Sex:</b> Female or Male</p>
+                    <p><b>Age:</b> 00 years</p>
+                    <p>
+                      <b>Website:</b>
+                      <a href="https://website.website" target="_blank"
+                        >website.website</a
+                      >
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <figure>
+          <img id="cuteCats--image-logo" src="./assets/cuteCats Logo.png" alt="logo" />
+        </figure>
+      </section> -->
+
+      <div class="post__search">
+        <a href="/index.html">
+          <button>← Back</button>
+        </a>
+        <select onchange="showBreedImage(value)" name="breed_selector" id="breed_selector">
+        </select>
+        <div>
+        <a id="wiki_link" target="_blank"></a>
+        <div id="breed_json"></div>
+        </div>
+        <div>
+        <img id="breed_image">
+        </div>
+      </div>
+    <script src="user.js"></script>
+    <script src="modal.js"></script>
+  </body>
     
-    <div>
-    <a id="wiki_link" target="_blank"></a>
-    <div id="breed_json"></div>
-    </div>
-    
-    <div>
-    <img id="breed_image">
+    <footer>
+      <div class="footer__container">
+        <div class="row footer__row">
+          <a
+          href="#" onclick="toggleModal()" class=""
+          class="footer__list--link1 link__hover-effect link__hover-effect-white"
+        >
+          Contact Us
+        </a>
+        <a
+          href="findyourcat.html" class="button-class"
+          class="footer__class--link2 link__hover-effect link__hover-effect-white"
+        >Find your Cat
+      </a>
+      <div class="footer__copyright">Copyright © 2024 Nalini Krishan</div>
     </div>
   </div>
-</body>
-<script src="user.js"></script>
-
+    </footer>
+    </section>
 </html>
+
+
     <!-- <div class="post__search--container">
       <label class="post__search--label">
         Search by Id
