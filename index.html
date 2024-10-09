@@ -34,12 +34,11 @@
         <ul class="nav__link--list">
           <li class="nav__link">
             <a
-              href="#Home"
+              href="index.html"
               class="nav__link--anchor link__hover-effect link__hover-effect--blue"
               >Home</a
             >
           </li>
-
           <li class="nav__link">
             <a
               href="findyourcat.html"
@@ -47,7 +46,6 @@
               >Find your Cat</a
             >
           </li>
-
           <li class="nav__link" onclick="toggleModal()">
             <a
               href="#"
@@ -55,7 +53,6 @@
               >Contact</a
             >
           </li>
-
           <li class="nav__link click" onclick="toggleContrast()">
             <a
               href="#"
@@ -65,7 +62,6 @@
           </li>
         </ul>
       </nav>
-
       <h1>California's Cutest Cats for Adoption</h1>
       <h2>Find your new fellow feline</h2>
     </section>
@@ -168,22 +164,23 @@
 
       <section id="content">
         <search id="search">
-          <form id="form">
-            <input type="text" placeholder="Search by breed" />
+          <form id="cat__form">
+            <a href="findyourcat.html">
+            <input class="findyourcat__input" type="text" id="findyourcat.html" placeholder="Search by breed" />
             <button type="submit" id="search-btn">Search</button>
-            <p>Search by breed</p>
+            </a>
           </form>
         </search>
       </section>
 
-      <section id="cats">
+      <!-- <section id="cats">
         <span data>
           Price range:
           <select id="Price-range">
             "$20 to $200"
           </select>
         </span>
-      </section>
+      </section> -->
 
         <!-- <div class="container">
           <div class="row">
@@ -208,11 +205,14 @@
         </div> -->
         
       <section id="Cat Information">
-        <figure>
+        <div class="container__catlogo">
+        <figure class="catlogo">
           <img id="cuteCats--image-logo" src="./assets/cuteCats Logo.png" alt="logo" />
         </figure>
+        </div>
       </section>
     </body>
+
     <footer>
       <div class="footer__container">
         <div class="row footer__row">

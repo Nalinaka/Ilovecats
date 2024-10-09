@@ -24,6 +24,9 @@ a {
   text-decoration: none;
   color: white; 
   margin-bottom: 32px; 
+  display: flex;
+  justify-content: center;  
+  align-items: center;
 }
 
 button {
@@ -246,11 +249,12 @@ h1 {
 
 h2 {
   font-size: 40px;
-  margin-bottom: 12px;
+  margin-bottom: 48px;
   display: flex;
   justify-content: center;
   align-items: center;
   color: rgb(67, 67, 231);
+  margin-top: 12px;
 }
 
 .cuteCats-logo {
@@ -264,14 +268,12 @@ h2 {
 
 
 .cuteCats--image-logo {
-  filter: invert(1);
-  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 72px;
-  position: absolute;
-  max-width: fit-content;
+  /* margin-bottom: 72px; */
+  /* position: absolute; */
+  max-width: 1000px;
 }
 
 .mail__btn {
@@ -297,22 +299,19 @@ h2 {
 }
 
 .scroll__icon {
-  width: 20px;
-  height: 20px;
-  border: 2px solid #242424;
-  border-radius: 24px;
-  left: 50%;
-  /* transform: translateX(-50%); */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+    position: absolute;
+    bottom: 20px; /* Adjust the distance from the bottom */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Adjust to perfectly center it */
+  }
+  
+ 
 
 .scroll__icon:after {
   content: "";
   width: 4px;
   height: 6px;
-  background-color: #242424;
+  background-color: #f7f0f0;
   border-radius: 2px;
   animation: scroll 1000ms infinite alternate-reverse;
 }
@@ -438,12 +437,13 @@ TRANSLATE MAKES THE CONTACT FORM SLIDE IN */
 }
 
 .modal__cat--img {
-  width: 50%;
+  width: 100%;
   position: relative;
   display: flex;
   flex-direction: row;
   align-items: center;
   transition: all 300ms ease;
+  margin-top: 32px; 
 }
 
 .modal__cat--img:hover {
@@ -744,9 +744,145 @@ p {
 
 /* 
 
-FOOTER 
+CONTENT
 
 */
+
+
+.search-btn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;  
+  justify-content: center;
+  color: blue; 
+  cursor: pointer;
+  max-width: 1000px;
+}
+
+.search-btn:hover {
+  display: inline-block;
+  flex-direction: row;
+  align-items: center;  
+  justify-content: center;
+  margin-top: 32px;
+  color: blue; 
+}
+
+input {
+  max-width: 1000px; 
+  display: inline-block;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+
+#findyourcat.html {
+  display: inline-block;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 300px; 
+}
+
+.findyourcat__input {
+  max-width: 1000px; 
+  display: inline-block;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 124px;
+  border-radius: 100px;  
+}
+
+#cat__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* 
+
+CAT INFORMATION  
+
+
+*/
+
+
+.cuteCats--image-logo {
+  filter: invert(1);
+  max-width: 1000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 72px;
+  border: none; 
+}
+
+
+.container__catlogo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.catlogo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 72px;
+  border: none;
+}
+
+/* 
+
+FIND YOUR CAT HTML CODE 
+
+*/
+
+.breed_selector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+
+}
+
+.breed__image {
+  max-width: 1500px;
+  height: auto;
+  width: 100%;
+}
+
+button {
+  cursor: pointer;
+  color: blue;
+  background-color: pink;
+  border: none;
+  border-radius: 100px;
+  padding: 10px 20px;
+  font-size: 20px;
+  font-weight: 700;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+/* 
+
+FOOTER  
+
+*/
+
+
 
 footer {
   position: relative;
@@ -838,3 +974,5 @@ footer {
     padding: 40px;
   }
 }
+
+
