@@ -1,76 +1,81 @@
 const url = `https://api.thecatapi.com/v1/breeds`;
-const api_key = "live_r8DHmCxxYvVXRGMgQVkWvHxVmXxtPPt8LtT2VelnAy8sCHlfVdErypSbmiFa5Fgv"
-let storedBreeds = []
+const api_key = "live_r8DHmCxxYvVXRGMgQVkWvHxVmXxtPPt8LtT2VelnAy8sCHlfVdErypSbmiFa5Fgv";
+let storedBreeds = [];
 
- fetch(url, {
-  
+// Fetching the breed data
+fetch(url, {
   headers: {
-      'x-api-key': api_key
-    }})
- .then((response) => {
-   return response.json();
- })
-.then((data) => {
-   
-  
-storedBreeds = data.filter(breed => breed.image?.url!=null);
-
-  // this is for the sort filter drop down
-  updatedBreedSelector = (storedBreeds);
-
-  // This shows the first breed by default
-  showBreedImage(0);
-
+    'x-api-key': api_key
+  }
 })
-.catch((error)=> {
-console.log(error);
+  .then((response) => response.json())
+  .then((data) => {
+    // Filter breeds to only include those with an image
+    storedBreeds = data.filter(breed => breed.image?.url != null);
 
-});
+    // Update breed selector with all breeds initially
+    updatedBreedSelector(storedBreeds);
 
-// UP UNTIL LINE 29 FETCHES THE DATA
+    // Show the first breed's image by default
+    showBreedImage(0);
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+
+// Function to update the breed selector
 function updatedBreedSelector(breeds) {
   const breedSelector = document.getElementById('breed_selector');
   breedSelector.innerHTML = '';
 
   breeds.forEach((breed, index) => {
-    let option =  document.createElement('option');
+    let option = document.createElement('option');
     option.value = index;
     option.innerHTML = `${breed.name}`;
     breedSelector.appendChild(option);
   });
 }
-     
-// This part is allowing me to filter my sort dropdown into these different options
+
+// Function to display the breed image and temperament
 function showBreedImage(index) {
   const breed = storedBreeds[index];
   document.getElementById("breed_image").src = breed.image.url;
-  document.getElementById("breed_json").textContent = `Temperament: ${breed.temperament || "No description available"}`;
-  document.getElementById("breed_weight").textContent = `Weight: ${breed.weight?.imperial || "N/A"} lbs`;
-  document.getElementById("breed_height").textContent = `Height: ${breed.height?.imperial || "N/A"} inches`;
+  document.getElementById("breed_json").textContent = breed.temperament || "No description available";
 }
 
-// This adds the even Listener
+// Add event listener for the sort form submission
+document.getElementById('sort__form').addEventListener('submit', (e) => {
+  e.preventDefault();
 
-document.getElementById('cat__form').addEventListener('submit', (e) => {
-    e.preventDefault();
+  const sortSelector = document.getElementById('sort-selector').value;
 
-    const sortSelector  = document.getElementById('sort-selector').value;
+  // Sort based on the selected criteria (breed, height, weight)
+  if (sortSelector === 'breed') {
+    storedBreeds.sort((a, b) => a.name.localeCompare(b.name));
+  } else if (sortSelector === 'height') {
+    storedBreeds.sort((a, b) => {
+      // Parse height (assuming imperial format like "9 - 11 inches")
+      const heightA = parseFloat(a.height?.imperial?.split(" - ")[0]) || 0;
+      const heightB = parseFloat(b.height?.imperial?.split(" - ")[0]) || 0;
+      return heightA - heightB;
+    });
+  } else if (sortSelector === 'weight') {
+    storedBreeds.sort((a, b) => {
+      // Parse weight (assuming imperial format like "7 - 12 lbs")
+      const weightA = parseFloat(a.weight?.imperial?.split(" - ")[0]) || 0;
+      const weightB = parseFloat(b.weight?.imperial?.split(" - ")[0]) || 0;
+      return weightA - weightB;
+    });
+  }
 
-    // This code is how it sorts from the selected array
-    if (sortSelector === 'breed') { 
-        storedBreeds.sort((a, b) => a.name.localeCompare(b.name));  
-    } else if (sortSelector === 'height') {
-        storedBreeds.sort((a, b) => (a.height?.imperial || 0) - (b.height?.imperial || 0));
-    } else if (sortSelector === 'weight') {
-        storedBreeds.sort((a, b) => (a.weight?.imperial || 0) - (b.weight?.imperial || 0));
-    }
+  // Update the breed selector with the sorted breeds
+  updatedBreedSelector(storedBreeds);
 
-    // Shows the first breed after sorting
-    updatedBreedSelector(storedBreeds);
-    showBreedImage(0);
+  // Show the first breed after sorting
+  showBreedImage(0);
 });
 
-// This is when breed is selected from drop down
+// Event listener to show the selected breed's image
 document.getElementById('breed_selector').addEventListener('change', (e) => {
   const selectedIndex = e.target.value;
   showBreedImage(selectedIndex);

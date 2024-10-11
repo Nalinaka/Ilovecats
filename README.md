@@ -92,4 +92,57 @@ This is additional code I had for index.js:
 
 **************************************************************************************
 
+FIND YOUR CAT HTML CODE NOT USED:
+
+
+
+      <section id="content">
+        <search id="search">
+          <form id="form">
+            <input type="text" placeholder="Search by breed" />
+            <button type="submit" id="search-btn">Search</button>
+            <p>Search by breed</p>
+          </form>
+        </search>
+      </section>
+
+      <!-- <section id="cats">
+        <span data>
+          Price range:
+          <select id="Price-range">
+            "$20 to $200"
+          </select>
+        </span>
+      </section> -->
+
+      <section id="Cat Information">
+        <div class="container">
+          <div class="row">
+            <div class="cat-list">
+              <div class="cats">
+                <div class="cat-card">
+                  <div class="cat-card__container">
+                    <h3>Cat's Breed</h3>
+                    <p><b>Sex:</b> Female or Male</p>
+                    <p><b>Age:</b> 00 years</p>
+                    <p>
+                      <b>Website:</b>
+                      <a href="https://website.website" target="_blank"
+                        >website.website</a
+                      >
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <figure>
+          <img id="cuteCats--image-logo" src="./assets/cuteCats Logo.png" alt="logo" />
+        </figure>
+      </section> 
+
+
+**************************************************************************************************************
+
 
