@@ -243,7 +243,7 @@ h1 {
   justify-content: center;
   align-items: center;
   margin-bottom: 24px; 
-  margin-top: 24px;
+  margin-top: 84px;
   color: pink;
 }
 
@@ -361,7 +361,8 @@ nav {
 }
 
 .fa-solid {
-  font-size: 20px;
+  font-size: 20px; 
+  margin-top: 44px; 
 }
 /* 
 .social__list {
@@ -554,7 +555,9 @@ font-size: 16px;
 
 .form__submit:hover {
   border-color: white;
-  background-color: transparent;
+  /* background-color: transparent; */
+  background-color:pink;
+  color: white;
 }
 
 /* 
@@ -706,6 +709,11 @@ p {
   cursor: pointer;
 }
 
+.back-btn:hover {
+  background-color: lightblue;
+  color: white;
+}
+
 .post {
   border: 1px solid black;
   background-color: white;
@@ -727,20 +735,43 @@ p {
 .post__search {
   margin-top: 16px;
   display: flex;
+  flex-direction: column; 
   justify-content: space-between;
   align-items: center;
   padding: 0 20px;
 }
 
 .post__search--container {
-  display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .post__search--label {
   padding-right: 8px;
 }
 
+.breed__image {
+  max-width: 500px;
+  height: 300px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.breed__temperament--cat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;  
+  margin-bottom: 32px; 
+}
+
+.breed__image--cat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;  
+  margin-bottom: 32px; 
+}
 
 /* 
 
@@ -748,8 +779,48 @@ CONTENT
 
 */
 
+.search__container {
+  width: 100%; 
+  position: relative; 
+}
+
+button {
+  cursor: pointer;
+  color: blue;
+  background-color: pink;
+  border: 1px solid; 
+  border-radius: 100px;
+  padding: 10px 60px 10px 20px;
+  font-size: 20px;
+  font-weight: 700;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative; 
+  box-sizing: border-box;
+  transition: all 300ms ease; 
+}
+
+.submit__search {
+  color: blue; 
+  background-color: white; 
+  border-radius: 50%;
+  padding: 5px 10px 5px 10px; 
+  position: absolute; 
+  margin-left: 324px;
+  margin-top: 25px; 
+}
+
+.fa-magnifying-glass {
+  margin-top: 5px;
+  size: 20px;  
+}
+
 
 .search-btn {
+  position: absolute; 
   display: flex;
   flex-direction: row;
   align-items: center;  
@@ -801,6 +872,48 @@ input {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+/* 
+
+SORT FILTER 
+
+*/
+
+.sort__container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sort__button {
+  background-color: pink;
+  color: blue;
+  padding: 10px 15px;
+  border-radius: 50px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Optional: add a hover effect */
+.sort__button:hover {
+  background-color: lightblue;
+  color: white;
+}
+
+
+#sort-selector {
+  max-width: 1000px; 
+  display: inline-block;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 124px;
+  border-radius: 100px;  
+  margin-bottom: 52px; 
+  margin-top: 24px; 
+  margin-left: 580px;
 }
 
 
@@ -872,6 +985,7 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative; 
 }
 
 

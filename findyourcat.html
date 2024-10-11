@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="style.css" />
     <script src="user.js"></script>
     <script src="modal.js"></script>
+    <script src="fyc.js"></script>
     <script
       type="text/javascript"
       src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
@@ -34,26 +35,26 @@
         <ul class="nav__link--list">
           <li class="nav__link">
             <a
-              href="#Home"
-              class="nav__link--anchor link__hover-effect link__hover-effect--blue"
-              >Home</a
-            >
+              href="index.html"
+              class="nav__link--anchor link__hover-effect link__hover-effect--blue">
+            <button>Home</button>
+            </a>
           </li>
 
           <li class="nav__link">
             <a
               href="findyourcat.html"
-              class="nav__link--anchor link__hover-effect link__hover-effect--blue"
-              >Find your Cat</a
-            >
+              class="nav__link--anchor link__hover-effect link__hover-effect--blue">
+              <button>Find your Cat</button>
+              </a>
           </li>
 
           <li class="nav__link" onclick="toggleModal()">
             <a
               href="#"
-              class="nav__link--anchor link__hover-effect link__hover-effect--blue"
-              >Contact</a
-            >
+              class="nav__link--anchor link__hover-effect link__hover-effect--blue">
+              <button>Contact</button>
+              </a>
           </li>
 
           <li class="nav__link click" onclick="toggleContrast()">
@@ -173,17 +174,17 @@
             <p>Search by breed</p>
           </form>
         </search>
-      </section>
+      </section> -->
 
-      <section id="cats">
+      <!-- <section id="cats">
         <span data>
           Price range:
           <select id="Price-range">
             "$20 to $200"
           </select>
         </span>
-      </section>
-
+      </section> -->
+<!-- 
       <section id="Cat Information">
         <div class="container">
           <div class="row">
@@ -209,7 +210,7 @@
         <figure>
           <img id="cuteCats--image-logo" src="./assets/cuteCats Logo.png" alt="logo" />
         </figure>
-      </section> -->
+      </section>  -->
 
       <div class="post__search">
         <a href="/index.html">
@@ -217,15 +218,16 @@
         </a>
         <select onchange="showBreedImage(value)" name="breed_selector" id="breed_selector">
         </select>
-        <div>
+        <div class="breed__temperament--cat">
         <a id="wiki_link" target="_blank"></a>
         <div id="breed_json"></div>
         </div>
-        <div>
+        <div class="breed__image--cat">
         <img id="breed_image">
         </div>
       </div>
-    <script src="user.js"></script>
+    <script src="fyc.js"></script>
+    <script src="index.js"></script>
     <script src="modal.js"></script>
   </body>
     

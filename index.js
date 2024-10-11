@@ -1,9 +1,10 @@
-
 const url = `https://api.thecatapi.com/v1/breeds`;
 const api_key = "live_r8DHmCxxYvVXRGMgQVkWvHxVmXxtPPt8LtT2VelnAy8sCHlfVdErypSbmiFa5Fgv"
 let storedBreeds = []
 
- fetch(url,{headers: {
+ fetch(url, {
+  
+  headers: {
       'x-api-key': api_key
     }})
  .then((response) => {
@@ -11,78 +12,67 @@ let storedBreeds = []
  })
 .then((data) => {
    
-   //filter to only include those with an `image` object
-   data = data.filter(img=> img.image?.url!=null)
-   
-  storedBreeds = data;
-   
-   for (let i = 0; i < storedBreeds.length; i++) {
-    const breed = storedBreeds[i];
-    let option = document.createElement('option');
-     
-     //skip any breeds that don't have an image
-     if(!breed.image)continue
-     
-    //use the current array index
-    option.value = i;
-    option.innerHTML = `${breed.name}`;
-document.getElementById('breed_selector').appendChild(option);
-    
-    }
-   //show the first breed by default
-   showBreedImage(0)
+  
+storedBreeds = data.filter(breed => breed.image?.url!=null);
+
+  // this is for the sort filter drop down
+  updatedBreedSelector = (storedBreeds);
+
+  // This shows the first breed by default
+  showBreedImage(0);
+
 })
-.catch(function(error) {
-   console.log(error);
+.catch((error)=> {
+console.log(error);
+
 });
 
-function showBreedImage(index)
-{ 
-  document.getElementById("breed_image").src= storedBreeds[index].image.url;
-  
-  document.getElementById("breed_json").textContent= storedBreeds[index].temperament
+// UP UNTIL LINE 29 FETCHES THE DATA
+function updatedBreedSelector(breeds) {
+  const breedSelector = document.getElementById('breed_selector');
+  breedSelector.innerHTML = '';
+
+  breeds.forEach((breed, index) => {
+    let option =  document.createElement('option');
+    option.value = index;
+    option.innerHTML = `${breed.name}`;
+    breedSelector.appendChild(option);
+  });
+}
+     
+// This part is allowing me to filter my sort dropdown into these different options
+function showBreedImage(index) {
+  const breed = storedBreeds[index];
+  document.getElementById("breed_image").src = breed.image.url;
+  document.getElementById("breed_json").textContent = `Temperament: ${breed.temperament || "No description available"}`;
+  document.getElementById("breed_weight").textContent = `Weight: ${breed.weight?.imperial || "N/A"} lbs`;
+  document.getElementById("breed_height").textContent = `Height: ${breed.height?.imperial || "N/A"} inches`;
 }
 
+// This adds the even Listener
 
+document.getElementById('cat__form').addEventListener('submit', (e) => {
+    e.preventDefault();
 
-// const catsListEl = document.querySelector(".cat-list");
+    const sortSelector  = document.getElementById('sort-selector').value;
 
-// async function getCat() {
-//   const cats = await fetch("https://api.thecatapi.com/v1/images/search?api_key=live_r8DHmCxxYvVXRGMgQVkWvHxVmXxtPPt8LtT2VelnAy8sCHlfVdErypSbmiFa5Fgv");
-//   const catsData = await cats.json();
+    // This code is how it sorts from the selected array
+    if (sortSelector === 'breed') { 
+        storedBreeds.sort((a, b) => a.name.localeCompare(b.name));  
+    } else if (sortSelector === 'height') {
+        storedBreeds.sort((a, b) => (a.height?.imperial || 0) - (b.height?.imperial || 0));
+    } else if (sortSelector === 'weight') {
+        storedBreeds.sort((a, b) => (a.weight?.imperial || 0) - (b.weight?.imperial || 0));
+    }
 
-//   //   the map function below converts user data from the backend API into html so it can be viewed
-//   catsListEl.innerHTML = catsData.map ((cats) => catsHTML(cats)).join("");
-// }
+    // Shows the first breed after sorting
+    updatedBreedSelector(storedBreeds);
+    showBreedImage(0);
+});
 
-// getCat();
-
-// function showCatsPosts(id) {
-//     localStorage.setItem("catsId", id);
-//   window.location.href = `${window.location.origin}/cats.html`
-// }
-
-// // window.location.href = re routes to a new page
-// // You can see local storage under inspect and application
-
-// function catsHTML(cats) {
-//   return `<div class="user-card" onclick="showCatsPosts(${cats.id}">
-//     <div class="user-card__container">
-//         <h3>${cats.id}</h3>
-//         <p>
-//             <b>Width:</b> ${cats.width}
-//         </p>
-//         <p>
-//             <b>Height:</b> ${cats.height}
-//         </p>
-//         <p>
-//             <b>Website:</b>{" "}
-//             <a href="https://${cats.website}" target="_blank">
-//                 ${cats.website}
-//             </a>
-//         </p>
-//     </div>
-// </div>;`;
-// }
-
+// This is when breed is selected from drop down
+document.getElementById('breed_selector').addEventListener('change', (e) => {
+  const selectedIndex = e.target.value;
+  showBreedImage(selectedIndex);
+});
 
