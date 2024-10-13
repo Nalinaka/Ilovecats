@@ -7,10 +7,12 @@
     <title>I love Cats</title>
     <script src="https://kit.fontawesome.com/e995974119.js" crossorigin="anonymous"></script>
     <script src="index.js"></script>
-    <script src="script.js"></script>
     <link rel="stylesheet" href="style.css" />
     <script src="user.js"></script>
     <script src="modal.js"></script>
+    <script src="practice.js"></script>
+    <script src="data.js"></script>
+
     <script
       type="text/javascript"
       src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
@@ -43,7 +45,7 @@
             <a
               href="findyourcat.html"
               class="nav__link--anchor link__hover-effect link__hover-effect--blue">
-              <button>Find your Cat</button>
+              <button>More Cat Info</button>
               </a>
           </li>
           <li class="nav__link" onclick="toggleModal()">
@@ -65,7 +67,7 @@
       </nav>
       <h1>California's Cutest Cats for Adoption</h1>
       <h2>Find your new fellow feline</h2>
-    </section>
+</section>
 
     <body>
       <a href="#">
@@ -180,36 +182,57 @@
         <div class="sort__container">
           <form id="sort__form">
             <select id="sort-selector">
-              <option value="breed">Sort by Breed</option>
-              <option value="height">Sort by Height</option>
-              <option value="weight">Sort by Weight</option>
+              <option value="Name">Filter by Name</option>
+              <option value="Highest to Lowest">Weight, Lowest to Highest</option>
+              <option value="Lowest to Highest">Weight, Lowest to Highest</option>
+              <select onchange="showBreedImage(event)" name="breed_selector" id="breed_selector">
+                <div class="breed__image--cat">
+                  <img id="breed_image">
+              </div> 
+              </select>
             </select>
-          </form>
-        </div>
-      </section>    
-
-
-      
+            </form>
+            </div>
+            </section>
+  
 <!-- 
       THIS BELOW CODE IS ONLY IF YOU WANT TO FILTER BY BREED ON FIRST PAGE: -->
-<!-- 
-        <div class="post__search">
-          <a href="/index.html"> -->
-            <!-- <button>← Back</button> -->
-          <!-- </a>
-          <select onchange="showBreedImage(value)" name="breed_selector" id="breed_selector">
+
+      <!-- <section id="sort">
+        <div class="sort__container">
+          <form id="sort__form">
+            <select id="sort-selector">
+          <a href="/index.html"> 
+            <button>Back</button>
+          </a>
+          <select onchange="showBreedImage(event)" name="breed_selector" id="breed_selector">
           </select>
-          <div class="breed__temperament--cat">
+          <div class="breed__id--cat">
           <a id="wiki_link" target="_blank"></a>
-          <div id="breed_json"></div>
-          </div> -->
-          <!-- <div class="breed__image--cat">
+          <div id="breed_id"></div>
+          </div> 
+          <div class="breed__image--cat">
           <img id="breed_image">
           </div>
-        </div>
+        </form>
+      </div>
       <script src="user.js"></script>
       <script src="modal.js"></script>
-      </body> -->
+      <script src="index.html"></script>
+    </section> -->
+
+
+      <section id="cat__info">
+        <div class="animal-list">
+          <div class="animal-data">
+          <h3>Animal Name</h3>
+          <p><b>Id:</b></p>
+          <p><b>Weight:</b></p>
+          <p class="description"><b>Description:</b></p>
+          <p class="temperament__style"><b>Temperament:</b></p>
+        </div>
+        </div>
+    </section>
 
         
       <section id="Cat Information">
@@ -219,7 +242,7 @@
         </figure>
         </div>
       </section>
-   
+
 
     <footer>
       <div class="footer__container">
@@ -233,12 +256,12 @@
         <a
           href="findyourcat.html" class="button-class"
           class="footer__class--link2 link__hover-effect link__hover-effect-white"
-        >Find your Cat
+        >More Cat Info
       </a>
       <div class="footer__copyright">Copyright © 2024 Nalini Krishan</div>
     </div>
   </div>
     </footer>
-  </body>
-    </section>
+    </body>
+</section>
 </html>

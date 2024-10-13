@@ -6,12 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>I love Cats</title>
     <script src="https://kit.fontawesome.com/e995974119.js" crossorigin="anonymous"></script>
-    <script src="index.js"></script>
-    <script src="user.html"></script>
-    <link rel="stylesheet" href="style.css" />
     <script src="user.js"></script>
+    <link rel="stylesheet" href="style.css" />
     <script src="modal.js"></script>
     <script src="fyc.js"></script>
+    <script src="data.js"></script>
     <script
       type="text/javascript"
       src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
@@ -45,7 +44,7 @@
             <a
               href="findyourcat.html"
               class="nav__link--anchor link__hover-effect link__hover-effect--blue">
-              <button>Find your Cat</button>
+              <button>More Cat Info</button>
               </a>
           </li>
 
@@ -173,7 +172,9 @@
         <select onchange="showBreedImage(value)" name="breed_selector" id="breed_selector">
         </select>
         <div class="breed__temperament--cat">
-        <a id="wiki_link" target="_blank"></a>
+        <a id="wiki_link" target="_blank">
+        <a href="#wiki-link" class= "wiki_link" target="_blank"></a>
+        </a>
         <div id="breed_json"></div>
         </div>
         <div class="breed__image--cat">
@@ -197,7 +198,7 @@
         <a
           href="findyourcat.html" class="button-class"
           class="footer__class--link2 link__hover-effect link__hover-effect-white"
-        >Find your Cat
+        >More Cat Info
       </a>
       <div class="footer__copyright">Copyright © 2024 Nalini Krishan</div>
     </div>
@@ -207,19 +208,4 @@
 </html>
 
 
-    <!-- <div class="post__search--container">
-      <label class="post__search--label">
-        Search by Id
-      </label>
-      <input type="number" placeholder="1" onchange="onSearchChange(event)">
-    </div>
-  </div>
-  <div class="post-list">
-    <div class="post">
-      <div class="post__title">
-        Post Title
-      </div>
-      <p class="post__body">
-        Post Body
-      </p>
-    </div> -->
+

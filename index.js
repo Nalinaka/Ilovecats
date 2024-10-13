@@ -1,83 +1,31 @@
-const url = `https://api.thecatapi.com/v1/breeds`;
-const api_key = "live_r8DHmCxxYvVXRGMgQVkWvHxVmXxtPPt8LtT2VelnAy8sCHlfVdErypSbmiFa5Fgv";
-let storedBreeds = [];
+// const url = `https://api.thecatapi.com/v1/breeds`;
+// const api_key = "live_r8DHmCxxYvVXRGMgQVkWvHxVmXxtPPt8LtT2VelnAy8sCHlfVdErypSbmiFa5Fgv";
 
-// Fetching the breed data
-fetch(url, {
-  headers: {
-    'x-api-key': api_key
-  }
-})
-  .then((response) => response.json())
-  .then((data) => {
-    // Filter breeds to only include those with an image
-    storedBreeds = data.filter(breed => breed.image?.url != null);
+const animalListEl = document.querySelector(".animal-list");
 
-    // Update breed selector with all breeds initially
-    updatedBreedSelector(storedBreeds);
-
-    // Show the first breed's image by default
-    showBreedImage(0);
-  })
-  .catch((error) => {
-    console.log(error);
-  });
-
-// Function to update the breed selector
-function updatedBreedSelector(breeds) {
-  const breedSelector = document.getElementById('breed_selector');
-  breedSelector.innerHTML = '';
-
-  breeds.forEach((breed, index) => {
-    let option = document.createElement('option');
-    option.value = index;
-    option.innerHTML = `${breed.name}`;
-    breedSelector.appendChild(option);
-  });
+async function main () {
+  const animal =  await fetch("https://api.thecatapi.com/v1/breeds");
+  const animalData = await animal.json();
+  animalListEl.innerHTML = animalData.map((animal) => animalHTML(animal)).join("");
 }
 
-// Function to display the breed image and temperament
-function showBreedImage(index) {
-  const breed = storedBreeds[index];
-  document.getElementById("breed_image").src = breed.image.url;
-  document.getElementById("breed_json").textContent = breed.temperament || "No description available";
+
+// The below function - window.location.href allows you to route to a new page in JS
+function showAnimalPosts(id) {
+  localStorage.setItem("id", id);
+  window.location.href = `${window.location.origin}/index.html`
+
 }
 
-// Add event listener for the sort form submission
-document.getElementById('sort__form').addEventListener('submit', (e) => {
-  e.preventDefault();
+function animalHTML(animal) {
+  return    `<div class="animal-list" onclick='showAnimalPosts(${animal.id})'>
+  <div class="animal-data">
+  <h3>${animal.name}</h3>
+  <p><b>Id:</b>${animal.id}</p>
+  <p><b>Weight:</b>${animal.weight.metric}</p>
+  <p><b>Description:</b>${animal.description}</p>
+  <p><b>Temperament:</b>${animal.temperament}</p>
+</div>`;
+}
 
-  const sortSelector = document.getElementById('sort-selector').value;
-
-  // Sort based on the selected criteria (breed, height, weight)
-  if (sortSelector === 'breed') {
-    storedBreeds.sort((a, b) => a.name.localeCompare(b.name));
-  } else if (sortSelector === 'height') {
-    storedBreeds.sort((a, b) => {
-      // Parse height (assuming imperial format like "9 - 11 inches")
-      const heightA = parseFloat(a.height?.imperial?.split(" - ")[0]) || 0;
-      const heightB = parseFloat(b.height?.imperial?.split(" - ")[0]) || 0;
-      return heightA - heightB;
-    });
-  } else if (sortSelector === 'weight') {
-    storedBreeds.sort((a, b) => {
-      // Parse weight (assuming imperial format like "7 - 12 lbs")
-      const weightA = parseFloat(a.weight?.imperial?.split(" - ")[0]) || 0;
-      const weightB = parseFloat(b.weight?.imperial?.split(" - ")[0]) || 0;
-      return weightA - weightB;
-    });
-  }
-
-  // Update the breed selector with the sorted breeds
-  updatedBreedSelector(storedBreeds);
-
-  // Show the first breed after sorting
-  showBreedImage(0);
-});
-
-// Event listener to show the selected breed's image
-document.getElementById('breed_selector').addEventListener('change', (e) => {
-  const selectedIndex = e.target.value;
-  showBreedImage(selectedIndex);
-});
 

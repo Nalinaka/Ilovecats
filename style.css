@@ -22,11 +22,12 @@ p {
 
 a {
   text-decoration: none;
-  color: white; 
+  color: rgb(251, 180, 222); 
   margin-bottom: 32px; 
   display: flex;
   justify-content: center;  
   align-items: center;
+  font-weight: 700; 
 }
 
 button {
@@ -167,7 +168,9 @@ AND DARK COLORS  */
 .dark-theme .section__sub-title,
 .dark-theme .nav__link--anchor,
 .dark-theme .fa-solid,
-.dark-theme .header__para {
+.dark-theme .header__para,
+.dark-theme .animal-data,
+.dark-theme .footer {
   color: white;
 }
 
@@ -773,6 +776,13 @@ p {
   margin-bottom: 32px; 
 }
 
+.wiki-link {
+  text-decoration: none;
+  color: blue;
+  font-size: 16px;  
+  font-weight: bold;
+}
+
 /* 
 
 CONTENT
@@ -916,6 +926,43 @@ SORT FILTER
   margin-left: 580px;
 }
 
+/* 
+
+CAT INFO  
+
+*/
+
+.cat-list {
+  display: flex;
+  flex-direction: column; 
+}
+
+.animal-data {
+  display: inline-block;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.5;
+  margin-bottom: 32px; 
+}
+
+
+.temperament__style {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.description {
+  max-width: 250px; 
+}
+
+.p {
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+  max-width: 500px; 
+}
+
 
 /* 
 
@@ -1014,11 +1061,12 @@ footer {
 }
 
 .footer__copyright {
-  color: white;
+  color:  rgb(251, 180, 222); 
   display: flex;
   align-items: center;
   justify-content: center;
   margin-top: 16px; 
+  font-weight: 700; 
 }
 
 .footer__list--link1 {
