@@ -938,11 +938,12 @@ CAT INFO
 }
 
 .animal-data {
-  display: inline-block;
+  display: inline-block; 
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   line-height: 1.5;
-  margin-bottom: 32px; 
+  margin-bottom: 64px; 
+  padding: 24px 20px; 
 }
 
 
@@ -950,6 +951,7 @@ CAT INFO
   display: flex;
   align-items: center;
   justify-content: center;
+  max-width: 200px; 
 }
 
 .description {
