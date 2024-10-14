@@ -1,3 +1,5 @@
+
+// const url = `https://api.thecatapi.com/v1/images/search?limit=100`;
 const url = `https://api.thecatapi.com/v1/breeds`;
 const api_key = "live_r8DHmCxxYvVXRGMgQVkWvHxVmXxtPPt8LtT2VelnAy8sCHlfVdErypSbmiFa5Fgv";
 
@@ -11,8 +13,9 @@ async function main() {
       }
     });
 
-  if (!response.ok)
+  if (!response.ok) {
     throw new error(`HTTP error! status: ${response.status}`);
+  }
 
   const animalData = await response.json();
   const animalListEl = document.querySelector(".animal-list");
@@ -38,6 +41,7 @@ function animalHTML(animal) {
       <p><b>Weight:</b> ${animal.weight.metric} kg</p>
       <p class="description"><b>Description:</b> ${animal.description || 'No description available'}</p>
       <p class="temperament__style"><b>Temperament:</b> ${animal.temperament || 'N/A'}</p>
+      <img src="${animal.image?.url}" alt="${animal.name}">
     </div>
   `;
 }
