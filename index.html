@@ -183,17 +183,17 @@
           <form id="sort__form">
             <select id="sort-selector">
               <a href="/index.html"> 
-                <button>Back</button>
+                <button tpye="button">Back</button>
               </a>
               <option value="Name">Name, Alphabetically</option>
-              <option value="Highest to Lowest">Weight, Lowest to Highest</option>
-              <option value="Lowest to Highest">Weight, Lowest to Highest</option>
-              <select onchange="showBreedImage(event)" name="breed_selector" id="breed_selector">
-                <div class="breed__image--cat">
-                  <img id="breed_image">
-              </div> 
-              </select>
-            </select>
+              <option value="sort-high-low">Sort by Weight: High to Low</option>
+              <option value="sort-low-high">Sort by Weight: Low to High</option>
+<!--           <select onchange="showBreedImage(event)" name="breed_selector" id="breed_selector">
+              <div class="breed__image--cat">
+                <img id="breed_image">
+              </div>  -->
+            <!-- </select> -->
+          </select>
             </form>
             </div>
             </section>
@@ -233,12 +233,17 @@
           <p><b>Weight:</b></p>
           <p class="description"><b>Description:</b></p>
           <p class="temperament__style"><b>Temperament:</b></p>
+          <a href="/findyourcat.html">
+          <button>View More</button>
+          <select onchange="showBreedImage(value)" name="breed_selector" id="breed_select">
+          </select>
+          </a>
         </div>
-        </div>
-    </section>
+      </div>
+      </section>
 
         
-      <section id="Cat Information">
+      <section id="Cat_Information">
         <div class="container__catlogo">
         <figure class="catlogo">
           <img id="cuteCats--image-logo" src="./assets/cuteCats Logo.png" alt="logo" />
