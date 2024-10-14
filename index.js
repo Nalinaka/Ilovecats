@@ -1,20 +1,33 @@
-// // const url = `https://api.thecatapi.com/v1/breeds`;
-// // const api_key = "live_r8DHmCxxYvVXRGMgQVkWvHxVmXxtPPt8LtT2VelnAy8sCHlfVdErypSbmiFa5Fgv";
+const url = `https://api.thecatapi.com/v1/breeds`;
+const api_key = "live_r8DHmCxxYvVXRGMgQVkWvHxVmXxtPPt8LtT2VelnAy8sCHlfVdErypSbmiFa5Fgv";
 
 
 
 async function main() {
-  const response = await fetch("https://api.thecatapi.com/v1/breeds");
+  try {
+    const response = await fetch(url, {
+      headers: {
+        'x-api-key': api_key
+      }
+    });
+
+  if (!response.ok)
+    throw new error(`HTTP error! status: ${response.status}`);
+
   const animalData = await response.json();
   const animalListEl = document.querySelector(".animal-list");
 
   if (animalListEl) {
     animalListEl.innerHTML = animalData
+    .filter(animal => animal.image?.url) // Filter out animals without images
       .map((animal) => animalHTML(animal)) 
       .join(""); 
   } else {
     console.error("Element with class 'animal-list' not found");
   }
+} catch (error) {
+  console.error("Error fetching data:", error);
+}
 }
 
 function animalHTML(animal) {
