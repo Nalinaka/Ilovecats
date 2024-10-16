@@ -934,7 +934,7 @@ CAT INFO
   line-height: 1.5;
   margin-bottom: 64px;
   padding: 24px 24px;
-  max-width: 400px; 
+  max-width: 500px; 
   margin-left: 240px; 
 }
 
@@ -942,7 +942,8 @@ CAT INFO
   display: flex;
   align-items: center;
   justify-content: center;
-  max-width: 200px;
+  max-width: 400px;
+  height: 50px; 
 }
 
 .description {
