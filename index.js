@@ -107,7 +107,7 @@ function setupSortSelector() {
 .catch(error => {
   console.error("Error:", error);
 });
-
+  }
 
 // Need to render the data now so it can display!  
 function renderBreed(breedData) {
