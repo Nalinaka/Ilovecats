@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>I love Cats</title>
-    <script src="https://kit.fontawesome.com/e995974119.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/e995974119.js"
+      crossorigin="anonymous"
+    ></script>
     <script src="index.js"></script>
     <link rel="stylesheet" href="style.css" />
     <script src="user.js"></script>
@@ -29,32 +32,38 @@
       <nav>
         <figure>
           <li class="nav__link" onclick="toggleModal()">
-          <img id="cuteCats-logo" src="./assets/Cute Cats Logo.png" alt="logo" />
-        </li>
+            <img
+              id="cuteCats-logo"
+              src="./assets/Cute Cats Logo.png"
+              alt="logo"
+            />
+          </li>
         </figure>
-      
+
         <ul class="nav__link--list">
           <li class="nav__link">
             <a
               href="index.html"
-              class="nav__link--anchor link__hover-effect link__hover-effect--blue">
+              class="nav__link--anchor link__hover-effect link__hover-effect--blue"
+            >
               <button>Home</button>
-              </a>
+            </a>
           </li>
           <li class="nav__link">
             <a
               href="findyourcat.html"
-              class="nav__link--anchor link__hover-effect link__hover-effect--blue">
+              class="nav__link--anchor link__hover-effect link__hover-effect--blue"
+            >
               <button>More Cat Info</button>
-              </a>
+            </a>
           </li>
           <li class="nav__link" onclick="toggleModal()">
             <a
               href="#"
-              class="nav__link--anchor link__hover-effect link__hover-effect--blue">
+              class="nav__link--anchor link__hover-effect link__hover-effect--blue"
+            >
               <button>Contact</button>
             </a>
-            
           </li>
           <li class="nav__link click" onclick="toggleContrast()">
             <a
@@ -67,7 +76,7 @@
       </nav>
       <h1>California's Cutest Cats for Adoption</h1>
       <h2>Find your new fellow feline</h2>
-</section>
+    </section>
 
     <body>
       <a href="#">
@@ -105,7 +114,7 @@
               />
               <span class="cat__name">Grogu Cat</span>
             </figure>
-            
+
             <figure class="Cat_Images">
               <img
                 class="modal__cat--img"
@@ -168,13 +177,21 @@
       <section id="content">
         <search id="search-selector">
           <div class="search__container">
-        <form id="cat__form">
-            <a href="#index.html">
-            <input class="findyourcat__input" type="text" id="findyourcat.html" placeholder="Search by Breed" onchange="onSearchCat(event)"/>
-            <button class="submit__search" id="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
-          </a>
-          </form>
-        </div>
+            <form id="cat__form">
+              <a href="#index.html">
+                <input
+                  class="findyourcat__input"
+                  type="text"
+                  id="findyourcat.html"
+                  placeholder="Search by Breed"
+                  onchange="onSearchCat(event)"
+                />
+                <button class="submit__search" id="search-btn">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+              </a>
+            </form>
+          </div>
         </search>
       </section>
 
@@ -182,94 +199,70 @@
         <div class="sort__container">
           <form id="sort__form">
             <select id="sort-selector">
-              <a href="/index.html"> 
+              <a href="/index.html">
                 <button tpye="button">Back</button>
               </a>
               <option value="Name">Name, Alphabetically</option>
               <option value="sort-high-low">Sort by Weight: High to Low</option>
               <option value="sort-low-high">Sort by Weight: Low to High</option>
-<!--           <select onchange="showBreedImage(event)" name="breed_selector" id="breed_selector">
-              <div class="breed__image--cat">
-                <img id="breed_image">
-              </div>  -->
-            <!-- </select> -->
-          </select>
-            </form>
-            </div>
-            </section>
-  
-<!-- 
-      THIS BELOW CODE IS ONLY IF YOU WANT TO FILTER BY BREED ON FIRST PAGE: -->
-
-      <!-- <section id="sort">
-        <div class="sort__container">
-          <form id="sort__form">
-            <select id="sort-selector">
-          <a href="/index.html"> 
-            <button>Back</button>
-          </a>
-          <select onchange="showBreedImage(event)" name="breed_selector" id="breed_selector">
-          </select>
-          <div class="breed__id--cat">
-          <a id="wiki_link" target="_blank"></a>
-          <div id="breed_id"></div>
-          </div> 
-          <div class="breed__image--cat">
-          <img id="breed_image">
-          </div>
-        </form>
-      </div>
-      <script src="user.js"></script>
-      <script src="modal.js"></script>
-      <script src="index.html"></script>
-    </section> -->
-
+            </select>
+          </form>
+        </div>
+      </section>
 
       <section id="cat__info">
         <div class="animal-list">
           <div class="animal-data">
-          <h3>Animal Name</h3>
-          <p><b>Id: </b></p>
-          <p><b>Weight:</b></p>
-          <p class="description"><b>Description:</b></p>
-          <p class="temperament__style"><b>Temperament:</b></p>
-          <a href="/findyourcat.html">
-          <button>View More</button>
-          <select onchange="showBreedImage(value)" name="breed_selector" id="breed_select">
-          </select>
-          </a>
+            <h3>Animal Name</h3>
+            <p><b>Id: </b></p>
+            <p><b>Weight:</b></p>
+            <p class="description"><b>Description:</b></p>
+            <p class="temperament__style"><b>Temperament:</b></p>
+            <a href="/findyourcat.html">
+              <button>View More</button>
+              <select
+                onchange="showBreedImage(value)"
+                name="breed_selector"
+                id="breed_select"
+              ></select>
+            </a>
+          </div>
         </div>
-      </div>
       </section>
 
-        
       <section id="Cat_Information">
         <div class="container__catlogo">
-        <figure class="catlogo">
-          <img id="cuteCats--image-logo" src="./assets/cuteCats Logo.png" alt="logo" />
-        </figure>
+          <figure class="catlogo">
+            <img
+              id="cuteCats--image-logo"
+              src="./assets/cuteCats Logo.png"
+              alt="logo"
+            />
+          </figure>
         </div>
       </section>
 
-
-    <footer>
-      <div class="footer__container">
-        <div class="row footer__row">
-          <a
-          href="#" onclick="toggleModal()" class=""
-          class="footer__list--link1 link__hover-effect link__hover-effect-white"
-        >
-          Contact Us
-        </a>
-        <a
-          href="findyourcat.html" class="button-class"
-          class="footer__class--link2 link__hover-effect link__hover-effect-white"
-        >More Cat Info
-      </a>
-      <div class="footer__copyright">Copyright © 2024 Nalini Krishan</div>
-    </div>
-  </div>
-    </footer>
+      <footer>
+        <div class="footer__container">
+          <div class="row footer__row">
+            <a
+              href="#"
+              onclick="toggleModal()"
+              class=""
+              class="footer__list--link1 link__hover-effect link__hover-effect-white"
+            >
+              Contact Us
+            </a>
+            <a
+              href="findyourcat.html"
+              class="button-class"
+              class="footer__class--link2 link__hover-effect link__hover-effect-white"
+              >More Cat Info
+            </a>
+            <div class="footer__copyright">Copyright © 2024 Nalini Krishan</div>
+          </div>
+        </div>
+      </footer>
     </body>
-</section>
+  </section>
 </html>
