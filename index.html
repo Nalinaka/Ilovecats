@@ -9,12 +9,10 @@
       src="https://kit.fontawesome.com/e995974119.js"
       crossorigin="anonymous"
     ></script>
-    <script src="index.js"></script>
+    <script src="index.js" defer></script>
     <link rel="stylesheet" href="style.css" />
-    <script src="user.js"></script>
-    <script src="modal.js"></script>
-    <script src="practice.js"></script>
-    <script src="data.js"></script>
+    <script src="user.js" defer></script>
+    <script src="modal.js" defer></script>
 
     <script
       type="text/javascript"
@@ -175,7 +173,7 @@
       </div>
 
       <section id="content">
-        <search id="search-selector">
+        <search id="searchInput">
           <div class="search__container">
             <form id="cat__form">
               <a href="#index.html">
@@ -183,9 +181,8 @@
                   class="findyourcat__input"
                   type="text"
                   id="findyourcat.html"
-                  placeholder="Search by Breed"
-                  onchange="onSearchCat(event)"
-                />
+                  placeholder="Search by Breed"/>
+                  <!-- onchange="onSearchCat(event)" -->
                 <button class="submit__search" id="search-btn">
                   <i class="fa-solid fa-magnifying-glass"></i>
                 </button>
@@ -228,6 +225,7 @@
             </a>
           </div>
         </div>
+        <div id="targetElement"></div>
       </section>
 
       <section id="Cat_Information">

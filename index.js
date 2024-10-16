@@ -21,7 +21,8 @@ async function fetchAnimalData() {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
 
-        animalData = await response.json();
+      const animalData = await response.json();
+      console.log(animalData)
         renderAnimals(animalData); // Render unsorted data initially
     } catch (error) {
         console.error("Error fetching data:", error);
@@ -81,8 +82,9 @@ function setupSortSelector() {
 // for search filter has an onChange of "onSearchCat" used here to match
 
 // I added lowercase, otherwise when entered, it will be case sensitive
+
  function onSearchCat(event) {
-  const userInput = event.target.value.toLowerCase ();
+  const userInput = event.target.value.toLowerCase();
   fetchBreedData (userInput);
 }
 
@@ -129,7 +131,7 @@ document.getElementById('targetElement').innerHTML = html;
 
 document.getElementById('searchInput').addEventListener('input', onSearchCat);
 
-window.onload = fetchCatData;
+window.onload = animalData;
    
 
 // Call the main function when the DOM is fully loaded
