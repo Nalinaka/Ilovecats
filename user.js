@@ -15,65 +15,35 @@ async function renderPosts (id) {
   postListEl.innerHTML = postsData.map(post => postHTML(post)).join ('');
 }}
 
-function postHTML (post) {
+// async function renderAnimals(id) {
+//   const animal = await fetch (`https://api.thecatapi.com/v1/images/search?limit=100=api_key=live_r8DHmCxxYvVXRGMgQVkWvHxVmXxtPPt8LtT2VelnAy8sCHlfVdErypSbmiFa5Fgv${id}`)
+//   const animalData = await animal.json();
+//   console.log(animalData)
+//   const animalListEl = document.querySelector('.animal-list'); // make sure you have this element in your HTML
+//   if (animalListEl) {
+//       animalListEl.innerHTML = animalData.map(animal => animalHTML(animal)).join('');
+//   } else {
+//       console.error('animalListEl not found');
+//   }
+// }
+
+
+function postHTML (animal) {
   return `<div class="breed__temperament--cat">
-${post.temperament}
+${animal.temperament}
     <a id="wiki_link" target="_blank">
     <a href="#wiki-link" class= "wiki_link" target="_blank"></a>
     </a>
     <div id="animal_id"></div>
-    ${post.id}
+    ${animal.id}
     </div>
     <div class="breed__image--cat">
     <img id="breed_image">
-    ${post.image}
+    ${animal.image}
     </div>`
 }
 
-renderPosts (id);
+renderAnimals (id);
 
 
 
-// {/* <form id="sort__form">
-// <select id="sort-selector">
-//   <option value="Name">Filter by Name</option>
-//   <option value="weight">Filter by Weight</option>
-//   <select onchange="showBreedImage(event)" name="breed_selector" id="breed_selector">
-//     <div class="breed__image--cat">
-//       <img id="breed_image">
-//   </div> 
-//   </select> */}
-
-
-
-// {/* // const breedListEl = document.querySelector(".animal-list");
-// // const id = localStorage.getItem("id");
-
-// // async function onSearchChange(event) { */}
-// {/* //   const id = event.target.value;
-// //   renderPosts(id);
-// // }
-
-// // async function renderPosts(breed) { */}
-// {/* //   const posts = await fetch(
-// //     `https://api.thecatapi.com/v1/images/search?api_key=live_r8DHmCxxYvVXRGMgQVkWvHxVmXxtPPt8LtT2VelnAy8sCHlfVdErypSbmiFa5Fgv&breed_ids=${breed}`
-// //   );
-  
-// //   const breedsData = await posts.json();
-// //   breedListEl.innerHTML = breedsData.map((post) => catHTML(post)).join("");
-
-// //   console.log(breedsData);
-// // }
-// // function animalHTML(post) { }
-// /* //   return ` <div class="post">
-//   // const breed = post.breeds.length > 0 ? post.breeds[0] : { name: 'Unknown Breed', temperament: 'Unknown' };
-// //         <div class="post__breed">
-// //           ${post.breed}
-// //         </div>
-// //         <p class="post__temperament">
-// //           ${post.temperament}
-// //         </p>
-// //       </div>`;
-// // }
-
-// // renderPosts(id); */

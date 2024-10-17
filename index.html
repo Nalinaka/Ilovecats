@@ -26,7 +26,7 @@
   </head>
 
   <section id="navbar">
-    <section id="landing-page" onmousemove="moveBackground(event)">
+    <section id="landing-page">
       <nav>
         <figure>
           <li class="nav__link" onclick="toggleModal()">
@@ -175,8 +175,8 @@
       <section id="content">
         <search id="searchInput">
           <div class="search__container">
-            <form id="cat__form">
-              <a href="index.html">
+            <form id="cat__form" onsubmit="event.preventDefault();">
+              <a href="./index.html">
                 <input
                   class="findyourcat__input"
                   type="text"
@@ -184,7 +184,7 @@
                   placeholder="Search by Breed"
                   onchange="onSearchCat(event)"
                   />
-                <button class="submit__search" id="search-btn">
+                <button class="submit__search" onclick="onSearchCat(event)" id="search-btn">
                   <i class="fa-solid fa-magnifying-glass"></i>
                 </button>
               </a>
@@ -196,10 +196,9 @@
       <section id="sort">
         <div class="sort__container">
           <form id="sort__form">
+            <a href="./index.html">
+            </a>
             <select id="sort-selector">
-              <a href="./index.html">
-                <button tpye="button">Back</button>
-              </a>
               <option value="Name">Name, Alphabetically</option>
               <option value="sort-high-low">Sort by Weight: High to Low</option>
               <option value="sort-low-high">Sort by Weight: Low to High</option>
