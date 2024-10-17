@@ -92,17 +92,16 @@ function setupSortSelector() {
 
 // // I added lowercase, otherwise when entered, it will be case sensitive
 
-function onSearchCat(event) {
+function onSearchCat() {
     // event.preventDefault(); // This code stops the page from refreshing if you have not entered text (this was happening)
-
-// Function for searching breed
-const userInput = document.getElementById('searchInput').value.toLowerCase();
+    const userInput = document.getElementById('searchInput').value.toLowerCase();
 
 // //  filter the data based on what the user inputs
     const filteredData = allAnimalData.filter(cat =>
         cat.name.toLowerCase().includes(userInput) && cat.image
     );
 
+    
     renderAnimals(filteredData); // Re-render the filtered data
 }
 
@@ -115,5 +114,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function showAnimalPosts(id) {
     localStorage.setItem("id", id);
-    window.location.href = `${window.location.origin}/findyourcat.html`; // Modify the page URL 
+    window.location.href = `${window.location.origin}/search-input`; // Modify the page URL 
 }
