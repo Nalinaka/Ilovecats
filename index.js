@@ -92,8 +92,8 @@ function setupSortSelector() {
 
 // // I added lowercase, otherwise when entered, it will be case sensitive
 
-function onSearchCat() {
-//     // event.preventDefault(); // This code stops the page from refreshing if you have not entered text (this was happening)
+function onSearchCat(event) {
+    // event.preventDefault(); // This code stops the page from refreshing if you have not entered text (this was happening)
 
 // Function for searching breed
 const userInput = document.getElementById('searchInput').value.toLowerCase();
