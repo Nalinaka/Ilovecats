@@ -159,11 +159,11 @@ FADE MODAL OUT */
 
 /* DARK THEME
 
-NEED TO TARGET EVERY SINGLE CLASS THAT YOU WANT CHANGING
+/* NEED TO TARGET EVERY SINGLE CLASS THAT YOU WANT CHANGING
 COLOR, IN ORDER FOR THE DARK THEME TO SWITCH BETWEEN LIGHT
 AND DARK COLORS  */
 
-.dark-theme .title,
+/* .dark-theme .title,
 .dark-theme .section__title,
 .dark-theme .section__sub-title,
 .dark-theme .nav__link--anchor,
@@ -171,8 +171,8 @@ AND DARK COLORS  */
 .dark-theme .header__para,
 .dark-theme .animal-data,
 .dark-theme .footer {
-  color: white;
-}
+  color: white; */
+/* } */
 
 /* THIS MAKES THE WHOLE SITE DARK */
 .dark-theme section {
@@ -934,8 +934,8 @@ CAT INFO
   line-height: 1.5;
   margin-bottom: 64px;
   padding: 24px 24px;
-  max-width: 500px; 
-  margin-left: 240px; 
+  max-width: 500px;
+  margin-left: 240px;
 }
 
 .temperament__style {
@@ -943,7 +943,7 @@ CAT INFO
   align-items: center;
   justify-content: center;
   max-width: 400px;
-  height: 50px; 
+  height: 50px;
 }
 
 .description {
