@@ -9,6 +9,7 @@
 
 html {
   scroll-behavior: smooth;
+  /* overflow-x: hidden; */
 }
 
 li {
@@ -1073,7 +1074,12 @@ footer {
 /* Small phones, tablets, large smart phones */
 
 @media (max-width: 768px) {
-
+  h1 {
+    text-align: center;
+  }
+h2 {
+  text-align: center;
+} 
   .width {
     margin: 100%;
   }
@@ -1097,22 +1103,59 @@ footer {
     padding: 40px;
   }
   
+.animal-data {
+  display: inline-block;
+  align-items: center;
+  justify-content: space-evenly;
+  line-height: 1.5;
+  margin-bottom: 64px;
+  padding: 24px 24px;
+  max-width: 300px; 
+  margin-left: 0px; 
+  width: calc(100%/2);
+}
+
+.animal-list {
+  display: flex;
+  flex-wrap: wrap; 
+  justify-content: center;
+  align-items: center;
 }
 
 .width {
   margin: 0 auto;
   width: 100%;
 }
+#sort-selector {
+  margin-left: 0px; 
+  padding: 10px 25px;
+}
 
+.sort__container {
+  justify-content: center;
+}
+
+.findyourcat__input {
+  max-width: 1000px;
+  display: inline-block;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 25px;
+  border-radius: 100px;
+}
+
+}
 
 /* Small phones */
 @media (max-width: 480px) {
-  .h1 {
-    font: size 24px;
+  h1 {
+    font-size: 24px;
+    text-align: center;
+    margin-top: 250px; 
   }
-
-  .h2 {
-    font-size: 12px; 
+  h2 {
+    font-size: 20px; 
   }
   
   .header__para {
@@ -1134,7 +1177,7 @@ footer {
     margin-bottom: 8px;
   }
   .modal__half {
-    padding: 40px;
+    width: 100%; 
   }
 .footer {
   width: 100%;
@@ -1152,16 +1195,40 @@ footer {
   margin-bottom: 64px;
   padding: 24px 24px;
   max-width: 400px;
+  margin-left: 0px;
 }
 
-.animal-data {
+#sort-selector {
+  margin-left: 0px; 
+  padding: 10px 25px;
+}
+
+.findyourcat__input {
+  max-width: 1000px;
   display: inline-block;
+  flex-direction: row;
   align-items: center;
-  justify-content: space-evenly;
-  line-height: 1.5;
-  margin-bottom: 64px;
-  padding: 24px 24px;
-  max-width: 400px;
+  justify-content: center;
+  padding: 10px 25px;
+  border-radius: 100px;
 }
-
+.sort__container {
+  justify-content: center;
+}
+.nav__link--list {
+  flex-direction: column; 
+  align-items: center;
+}
+.nav__link {
+  margin: 0px; 
+}
+.nav__link--anchor {
+  margin-top: 0px; 
+}
+.nav__link--anchor, .link__hover-effect, .link__hover-effect--blue, .link__hover-effect--black {
+  margin-top: 0px; 
+}
+nav {
+  justify-content: center;
+}
 }
